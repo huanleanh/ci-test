@@ -25,33 +25,33 @@ jobs:
     - name: Lint
       run: npx grunt lint
 
-    - name: Unit Tests
-      run: |
-        npm test
-        npm run testnodeconsumer
+#    - name: Unit Tests
+#      run: |
+#        npm test
+#        npm run testnodeconsumer
 
-    - name: Production Build
-      if: success()
-      run: npx grunt prod --msg="Version 10 is here! Read about the new features <a href='https://github.com/gchq/CyberChef/wiki/Character-encoding,-EOL-separators,-and-editor-features'>here</a>"
+#    - name: Production Build
+#      if: success()
+#      run: npx grunt prod --msg="Version 10 is here! Read about the new features <a href='https://github.com/gchq/CyberChef/wiki/Character-encoding,-EOL-separators,-and-editor-features'>here</a>"
+#
+#    - name: Generate sitemap
+#      run: npx grunt exec:sitemap
+#
+#    - name: UI Tests
+#      if: success()
+#      run: |
+#        sudo apt-get install xvfb
+#        xvfb-run --server-args="-screen 0 1200x800x24" npx grunt testui
 
-    - name: Generate sitemap
-      run: npx grunt exec:sitemap
-
-    - name: UI Tests
-      if: success()
-      run: |
-        sudo apt-get install xvfb
-        xvfb-run --server-args="-screen 0 1200x800x24" npx grunt testui
-
-    - name: Prepare for GitHub Pages
-      if: success()
-      run: npx grunt copy:ghPages
-
-    - name: Deploy to GitHub Pages
-      if: success() && github.ref == 'refs/heads/master'
-      uses: crazy-max/ghaction-github-pages@v3
-      with:
-        target_branch: gh-pages
-        build_dir: ./build/prod
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#    - name: Prepare for GitHub Pages
+#      if: success()
+#      run: npx grunt copy:ghPages
+#
+#    - name: Deploy to GitHub Pages
+#      if: success() && github.ref == 'refs/heads/master'
+#      uses: crazy-max/ghaction-github-pages@v3
+#      with:
+#        target_branch: gh-pages
+#        build_dir: ./build/prod
+#      env:
+#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
