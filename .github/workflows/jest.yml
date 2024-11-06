@@ -1,4 +1,4 @@
-name: "Build-Jest-Test"
+name: "Jest"
 
 on:
   workflow_dispatch:

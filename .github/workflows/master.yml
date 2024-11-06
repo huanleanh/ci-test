@@ -1,4 +1,4 @@
-name: "Master Build, Test & Deploy"
+name: "Master Buildd, Test & Deploy"
 
 on:
   workflow_dispatch:
