@@ -27,7 +27,6 @@ jobs:
         echo "'babel' version: $(npx babel --version)"
         echo "'eslint' version: $(npx eslint --version)"
         echo "'webpack' version: $(npx webpack --version)"
-        npm run version
 
     - name: Build
       run: |
