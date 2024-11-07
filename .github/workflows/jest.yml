@@ -17,47 +17,21 @@ jobs:
       with:
         node-version: '18.x'
 
-    - name: Install
-      run: |
-        npm install
-        npm run setheapsize
+      - name: Resolve dependencies
+        run: npm install --ci
 
-    - name: Lint
-      run: npx grunt lint
-# name: "Jest"
+      - name: Check tools version
+        run: |
+          echo "'node' version: $(node --version)"
+          echo "'npm' version: $(npm --version)"
+          echo "'babel' version: $(npx babel --version)"
+          echo "'eslint' version: $(npx eslint --version)"
+          echo "'webpack' version: $(npx webpack --version)"
+          npm run version
 
-# on:
-#   workflow_dispatch:
-#   push:
-#     branches:
-#     - master
+      - name: Build
+        run: |
+          npm run build
 
-# jobs:
-#   jest:
-#     runs-on: ubuntu-latest
-#     steps:
-#     - uses: actions/checkout@v3
-
-#     - name: Set node version
-#       uses: actions/setup-node@v3
-#       with:
-#         node-version: '18.x'
-
-#       - name: Resolve dependencies
-#         run: npm install --ci
-
-#       - name: Check tools version
-#         run: |
-#           echo "'node' version: $(node --version)"
-#           echo "'npm' version: $(npm --version)"
-#           echo "'babel' version: $(npx babel --version)"
-#           echo "'eslint' version: $(npx eslint --version)"
-#           echo "'webpack' version: $(npx webpack --version)"
-#           npm run version
-
-#       - name: Build
-#         run: |
-#           npm run build
-
-#       - name: Test them!
-#         run: npm run test-build
+      - name: Test them!
+        run: npm run test-build
