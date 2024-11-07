@@ -17,21 +17,21 @@ jobs:
       with:
         node-version: '18.x'
 
-      - name: Resolve dependencies
-        run: npm install --ci
+    - name: Resolve dependencies
+      run: npm install --ci
 
-      - name: Check tools version
-        run: |
-          echo "'node' version: $(node --version)"
-          echo "'npm' version: $(npm --version)"
-          echo "'babel' version: $(npx babel --version)"
-          echo "'eslint' version: $(npx eslint --version)"
-          echo "'webpack' version: $(npx webpack --version)"
-          npm run version
+    - name: Check tools version
+      run: |
+        echo "'node' version: $(node --version)"
+        echo "'npm' version: $(npm --version)"
+        echo "'babel' version: $(npx babel --version)"
+        echo "'eslint' version: $(npx eslint --version)"
+        echo "'webpack' version: $(npx webpack --version)"
+        npm run version
 
-      - name: Build
-        run: |
-          npm run build
+    - name: Build
+      run: |
+        npm run build
 
-      - name: Test them!
-        run: npm run test-build
+    - name: Test them!
+      run: npm run test-build
