@@ -1,4 +1,4 @@
-name: "Master Buildd, Test & Deploys"
+name: "JEST"
 
 on:
   workflow_dispatch:
